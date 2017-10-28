@@ -1,0 +1,22 @@
+{
+  "name": "Node_HangMan",
+  "version": "1.0.0",
+  "description": "Node_HangMan",
+  "main": "game.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithsin/Node_HangMan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mithsin/Node_HangMan/issues"
+  },
+  "homepage": "https://github.com/mithsin/Node_HangMan#readme"
+}

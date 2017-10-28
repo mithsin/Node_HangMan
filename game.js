@@ -1,37 +1,53 @@
-//grab prompt input
-//match prompt input to current random word alphabet
-//if match, display on screen
-//else if does not match, take one life
+var inquirer = require("inquirer");
+var arrayWord = ["cabinet", "pet", "cat", "TouchBeauty", "furniture", "toy"];
+var ranWord = arrayWord[Math.floor(Math.random()* arrayWord.length)];
+var hideWord = [];
+	for (var i = 0; i<ranWord.length; i++){
+        	hideWord.push("_");
+    		};
+var lives = 3;
 var guessArray=[];
-var gameStart = function(){
-    if(/*life > 0 && word not complete -> continue*/){
-inquirer.prompt([
-    {
-        name: "Guess",
-        message: "what is your guess?"
-    }
-]).then(function(userGuess){
-    var newWord = new wrod(
-        userGuess.name
-        );
-    guessArray.push(newWord);
-    
-    });
-};/* else if(life <= 0){
 
-    } else {
-
-    }*/
-//word bank for word to choose from
-//random function to choose the word randomly
-//make each alphabet and sing array
-//hide the random word
-var word = {
-    wordBank: ["Awkward", "apple", "juice", "talk", "todayistheday", "whereismydog"],
-    guessLeft: 10;  
+function reset(){
+hideWord();
+lives = 3;
+guessArray=[];
 };
 
-//make reset, game over, restart input, 
-var game = {
-
+function match(guessa){
+console.log("--------------------------");
+    for (var i = 0 ; i < ranWord.length; i++){
+        if(ranWord[i] === guessa){
+            hideWord[i] = guessa;
+        } else {
+        ilives();
+        }
+    } console.log(hideWord);
 };
+
+function ilives(guessa){
+    for (var i=0 ; i <ranWord.length; i++){
+        if(ranWord[i] !== guessa){
+            lives--;
+        }
+    }console.log(lives)
+}
+
+var play = function(){
+
+    if(lives > 0 ){
+        inquirer.prompt([
+            {
+                name: "guess",
+                message: "what is your guess?"
+            }
+        ]).then(function(userGuess){
+            match(userGuess.guess);
+            guessArray.push(userGuess.guess);
+            console.log(guessArray);
+            play();
+        });
+    };//if statement
+};//play function
+
+play();
